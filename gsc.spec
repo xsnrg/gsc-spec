@@ -8,6 +8,7 @@ URL:            https://archive.stsci.edu/gsc/
 Source0:        %{name}_%{version}.orig.tar.gz
 
 BuildRequires:  cmake
+BuildRequires:  git-lfs
 
 # I will solve this later
 Conflicts:	gambit-c
