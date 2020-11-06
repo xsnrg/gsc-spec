@@ -7,7 +7,7 @@ Summary:    Hubble Guide Star Catalog (GSC)
 
 License:    AURA
 URL:        https://archive.stsci.edu/gsc/
-Source0:    http://cdsarc.u-strasbg.fr/viz-bin/nph-Cat/tar.gz?bincats/GSC_1.2#/%{name}-%{version}.tar.gz
+Source0:    https://cdsarc.u-strasbg.fr/viz-bin/nph-Cat/tar.gz?bincats/GSC_1.2#/%{name}-%{version}.tar.gz
 Patch0:     Makefile.patch
 
 BuildRequires: cmake
