@@ -1,23 +1,25 @@
+%define __cmake_in_source_build %{_vpath_builddir}
+
 Name:           gsc
-Version:        1.0
-Release:        1%{?dist}
+Version:        1.2
+Release:	%(date -u +%%Y%%m%%d%%H%%M%%S)%{?dist}
 Summary:        Hubble Guide Star Catalog (GSC)
 
 License:        AURA
 URL:            https://archive.stsci.edu/gsc/
-Source0:        %{name}_%{version}.orig.tar.gz
+Source0:	cdsarc.u-strasbg.fr/viz-bin/nph-Cat/tar.gz?bincats/GSC_1.2 
 
-BuildRequires:  cmake
-BuildRequires:  git-lfs
+BuildRequires: cmake
+BuildRequires: systemd
+BuildRequires: extra-cmake-modules
+
 
 # I will solve this later
 Conflicts:	gambit-c
 
 
 %description
-The GSC-ACT is a recalibration of the Hubble Guide Star Catalog (GSC), 
-version 1.1, using the ACT (Astrographic Catalog/Tycho) from
-the US Naval Observatory.
+The GSC 1.2 catalog from u-strasbg.fr
 
 %prep
 %setup -q
@@ -25,12 +27,11 @@ the US Naval Observatory.
 
 %build
 %cmake .
-make %{?_smp_mflags}
+%make_build
 
 
 %install
-rm -rf $RPM_BUILD_ROOT
-%make_install
+%cmake_install
 
 
 %files
@@ -41,6 +42,9 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Thu Nov  5 2020 Jim Howard <jh.xsnrg@gmail.com>
+- updated to build directly
+
 * Sun Jul  6 2014 Christian Dersch <chrisdersch@gmail.com>
 - initial build
 
