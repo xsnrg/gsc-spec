@@ -1,5 +1,5 @@
 diff --git a/src/Makefile.orig b/src/Makefile
-index 24250a3..584e0bb 100644
+index 24250a3..4e7e45a 100644
 --- a/src/Makefile.orig
 +++ b/src/Makefile
 @@ -40,7 +40,7 @@ DEL   = rm -f
@@ -45,7 +45,7 @@ index 24250a3..584e0bb 100644
 -	GSCDAT=`pwd`/..; export GSCDAT; genreg.exe -b -c -d
 +install: $(PGMS) genreg phase2
 +	$(COPY) gsc decode ../bin
-+	GSCDAT=`pwd`/..; export GSCDAT; genreg -b -c -d
++	GSCDAT=`pwd`/..; export GSCDAT; ./genreg -b -c -d
  
  clean:
 -	$(DEL) *.exe epoch encode core
