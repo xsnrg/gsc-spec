@@ -33,7 +33,6 @@ cd src
 %make_install
 
 %files
-%doc readme
 %{_datadir}/GSC/*
 %{_bindir}/*
 
