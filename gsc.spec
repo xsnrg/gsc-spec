@@ -1,44 +1,39 @@
 %define __cmake_in_source_build %{_vpath_builddir}
 
-Name:           gsc
-Version:        1.2
-Release:	%(date -u +%%Y%%m%%d%%H%%M%%S)%{?dist}
-Summary:        Hubble Guide Star Catalog (GSC)
+Name:       gsc
+Version:    1.2
+Release:    %(date -u +%%Y%%m%%d%%H%%M%%S)%{?dist}
+Summary:    Hubble Guide Star Catalog (GSC)
 
-License:        AURA
-URL:            https://archive.stsci.edu/gsc/
-Source0:	cdsarc.u-strasbg.fr/viz-bin/nph-Cat/tar.gz?bincats/GSC_1.2 
+License:    AURA
+URL:        https://archive.stsci.edu/gsc/
+Source0:    http://cdsarc.u-strasbg.fr/viz-bin/nph-Cat/tar.gz?bincats/GSC_1.2#/%{name}-%{version}.tar.gz
+Patch0:     Makefile.patch
 
 BuildRequires: cmake
-BuildRequires: systemd
 BuildRequires: extra-cmake-modules
-
 
 # I will solve this later
 Conflicts:	gambit-c
-
 
 %description
 The GSC 1.2 catalog from u-strasbg.fr
 
 %prep -v
-%setup -n bincats_GSC_1.2
+%setup -c gsc-1.2
 
+%patch0 -p1
 
 %build
-%cmake .
 %make_build
 
-
 %install
-%cmake_install
-
+%make_install
 
 %files
 %doc readme
 %{_datadir}/GSC/*
 %{_bindir}/*
-
 
 
 %changelog
