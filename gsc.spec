@@ -21,8 +21,8 @@ Conflicts:	gambit-c
 %description
 The GSC 1.2 catalog from u-strasbg.fr
 
-%prep
-%setup -v -n bincats_GSC_1.2
+%prep -v
+%setup -n bincats_GSC_1.2
 
 
 %build
