@@ -22,7 +22,7 @@ The GSC 1.2 catalog from u-strasbg.fr
 %prep -v
 %setup -c gsc-1.2
 
-%patch0
+%patch0 -p1
 
 %build
 cd src
